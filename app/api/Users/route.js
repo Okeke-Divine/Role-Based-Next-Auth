@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import User from "@/app/(models)/User";
 import bcrypt from "bcrypt"
-import { useDebugValue } from "react";
 
 export async function POST(req) {
     try {
@@ -12,9 +11,11 @@ export async function POST(req) {
             return NextResponse({ message: "All fields are required" }, { status: 400 })
         }
 
-        const duplicate = await User.findOne({ email: userData.email })
-            .lean();
-            .exec();
+        const duplicate = await User.findOne({ email: userData.email }).lean();
+
+        console.log("==============> ----")
+        console.log("Duplicate email: ", dupliate);
+        console.log("==============> ----")
 
         if (duplicate) {
             return NextResponse.json({ message: "Duplicate Email" }, { status: 409 })
