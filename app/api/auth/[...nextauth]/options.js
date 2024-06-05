@@ -9,7 +9,7 @@ export const options = {
 
                 let userRole = "GitHub User"
 
-                if (profile?.email == "okekedivine.skiy1@gmail.com") {
+                if (profile?.email == process.env.ADMIN_EMAIL) {
                     userRole = "admin"
                 }
 

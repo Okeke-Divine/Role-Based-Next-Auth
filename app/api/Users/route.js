@@ -11,7 +11,8 @@ export async function POST(req) {
             return NextResponse({ message: "All fields are required" }, { status: 400 })
         }
 
-        const duplicate = await User.findOne({ email: userData.email }).lean();
+        const duplicate = await User.findOne({ email: userData.email })
+        // .lean();
 
         console.log("==============> ----")
         console.log("Duplicate email: ", dupliate);
