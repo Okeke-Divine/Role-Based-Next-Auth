@@ -1,6 +1,6 @@
 const Denied = () => {
   return (
-    <div>Denied</div>
+    <div className="text-red-400">Denied</div>
   )
 }
 
